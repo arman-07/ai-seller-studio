@@ -27,6 +27,8 @@ struct HistoryView: View {
         Group {
             if isLoading {
                 ProgressView()
+            } else if let error {
+                ContentUnavailableView("Couldn't load history", systemImage: "exclamationmark.triangle", description: Text(error))
             } else if items.isEmpty {
                 ContentUnavailableView("No products yet", systemImage: "photo.stack", description: Text("Products you create show up here."))
             } else {
@@ -52,7 +54,6 @@ struct HistoryView: View {
                         }
                     }
                 }
-                if let error { Text(error).foregroundStyle(.red).font(.footnote) }
             }
         }
         .navigationTitle("History")
