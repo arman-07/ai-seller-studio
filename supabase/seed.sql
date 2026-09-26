@@ -1,0 +1,1 @@
+-- Local dev seed (supabase db reset). Intentionally empty: sign up through the app.
