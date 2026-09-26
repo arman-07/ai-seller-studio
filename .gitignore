@@ -1,0 +1,19 @@
+node_modules/
+.DS_Store
+*.tsbuildinfo
+dist/
+.env
+.env.*
+!.env.example
+
+# Supabase
+supabase/.branches
+supabase/.temp
+supabase/functions/.env
+
+# Xcode
+apps/ios/*.xcodeproj
+xcuserdata/
+DerivedData/
+*.xcuserstate
+apps/ios/Config/Secrets.xcconfig
