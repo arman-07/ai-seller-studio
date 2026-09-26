@@ -54,4 +54,21 @@ enum ProductService {
     static func download(_ path: String) async throws -> Data {
         try await supabase.storage.from(bucket).download(path: path)
     }
+
+    static func history() async throws -> [HistoryItem] {
+        try await supabase
+            .from("products")
+            .select("id, title, marketplace, status, tags, created_at, product_images(studio_path, ai_scene_path)")
+            .order("created_at", ascending: false)
+            .execute()
+            .value
+    }
+}
+
+enum AccountService {
+    /// Calls the `delete-account` edge function, which removes storage files and
+    /// deletes the auth user (DB rows cascade via foreign keys). Required for App Store review.
+    static func deleteAccount() async throws {
+        try await supabase.functions.invoke("delete-account")
+    }
 }

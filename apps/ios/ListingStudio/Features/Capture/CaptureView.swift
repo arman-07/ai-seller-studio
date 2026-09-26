@@ -35,6 +35,14 @@ struct CaptureView: View {
                 if let error { Text(error).foregroundStyle(.red) }
             }
             .navigationTitle("New product")
+            .toolbar {
+                ToolbarItem(placement: .topBarLeading) {
+                    NavigationLink("History") { HistoryView() }
+                }
+                ToolbarItem(placement: .topBarTrailing) {
+                    NavigationLink("Settings") { SettingsView() }
+                }
+            }
             .sheet(isPresented: $showCamera) {
                 CameraPicker { image in cutOut(image) }.ignoresSafeArea()
             }

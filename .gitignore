@@ -17,3 +17,4 @@ xcuserdata/
 DerivedData/
 *.xcuserstate
 apps/ios/Config/Secrets.xcconfig
+apps/ios/ListingStudio/Resources/Info.plist

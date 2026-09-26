@@ -67,4 +67,4 @@ cd apps/ios && xcodegen && open ListingStudio.xcodeproj
 
 ## Статус
 
-Каркас. Работает: схема, `process-product`, вебхуки, лендинг с waitlist, iOS-поток «снять → белый фон → листинг». Ещё нет: экран истории, paywall, web-кабинет, удаление аккаунта (обязательно для App Store).
+Каркас. Работает: схема, `process-product`, вебхуки, лендинг с waitlist, iOS-поток «снять → белый фон → листинг», экран истории, удаление аккаунта (`delete-account`, обязательно для App Store). Ещё нет: paywall, web-кабинет.
