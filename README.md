@@ -58,6 +58,10 @@ cd apps/ios && xcodegen && open ListingStudio.xcodeproj
 
 Проверки: `pnpm typecheck && pnpm lint && pnpm test`, для функций `cd supabase/functions && deno check */index.ts`.
 
+### Быстрый просмотр экранов без реального бэкенда
+
+Sign in with Apple работает только с настроенным Supabase Auth-провайдером. Чтобы посмотреть остальные экраны (History, Settings) не настраивая это: в Xcode → Product → Scheme → Edit Scheme → Run → Arguments → Environment Variables → добавить `PREVIEW_SKIP_AUTH` = `1`, затем Run. Экран входа пропускается сразу на «New product». Работает только в Debug-сборке (`#if DEBUG`), в Release не попадёт. Экран, который реально ходит в сеть (History, Create listing), всё равно требует настоящий `Secrets.xcconfig` — без него будет виден текст ошибки, а не тихая пустота.
+
 ## Деплой (когда дойдёт)
 
 - Supabase: `supabase link`, `supabase db push`, `supabase secrets set --env-file supabase/functions/.env`, `supabase functions deploy`. При первом деплое проверить, что функции видят `packages/shared` (импорт за пределами `supabase/`); если нет, перенести общий код в `supabase/functions/_shared`.
